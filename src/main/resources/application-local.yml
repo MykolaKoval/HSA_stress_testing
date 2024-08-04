@@ -1,0 +1,26 @@
+management:
+  endpoint:
+    health:
+      show-details: "ALWAYS"
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: health, metrics
+  metrics:
+    tags:
+      Application: hsaapp
+      Environment: test
+  statsd:
+    metrics:
+      export:
+        flavor: telegraf
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      username: hsaapp
+      password: secret
+      database: test_db
